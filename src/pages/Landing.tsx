@@ -1,17 +1,16 @@
-import { motion } from 'framer-motion';
+import { lazy, Suspense } from 'react';
 import Hero from '../components/Hero';
 import HeroInfoCard from '../components/HeroInfoCard';
-import ListingsCarousel from '../components/ListingsCarousel';
-import CommunitiesCarousel from '../components/CommunitiesCarousel';
-import LeadForm from '../components/LeadForm';
-import FAQ from '../components/FAQ';
+import { LazyOnView, SectionFallback } from '../components/LazyOnView';
 import { config } from '../config';
 
+const ListingsCarousel = lazy(() => import('../components/ListingsCarousel'));
+const CommunitiesCarousel = lazy(() => import('../components/CommunitiesCarousel'));
+const LeadForm = lazy(() => import('../components/LeadForm'));
+const FAQ = lazy(() => import('../components/FAQ'));
+
 const scrollToForm = () => {
-  const formSection = document.getElementById('lead-form');
-  if (formSection) {
-    formSection.scrollIntoView({ behavior: 'smooth' });
-  }
+  document.getElementById('lead-form')?.scrollIntoView({ behavior: 'smooth' });
 };
 
 const PROXIMITY = [
@@ -31,14 +30,20 @@ const ROADS = [
 ];
 
 const Landing = () => {
-  const mapImageSrc = config.mapImageUrl?.trim() || './location-map.jpg?v=3';
+  const mapImageSrc = config.mapImageUrl?.trim() || './location-map.jpg?v=4';
 
   return (
     <main>
       <Hero />
       <HeroInfoCard />
-      <ListingsCarousel />
-      <section id="architecture-design" className="w-full px-4 sm:px-6 lg:px-8 py-12 md:py-20 bg-white">
+
+      <LazyOnView minHeight={720}>
+        <Suspense fallback={<SectionFallback />}>
+          <ListingsCarousel />
+        </Suspense>
+      </LazyOnView>
+
+      <section id="architecture-design" className="section-defer w-full px-4 sm:px-6 lg:px-8 py-12 md:py-20 bg-white">
         <div className="container mx-auto text-center max-w-3xl">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Architecture & Design
@@ -54,21 +59,32 @@ const Landing = () => {
           </p>
           <div className="max-w-md mx-auto mb-8 rounded-2xl overflow-hidden shadow-xl">
             <img
-              src="./arch.jpg?v=2"
+              src="./arch.jpg?v=4"
               alt="Park Sight — The Master Plan by Mimar"
+              width={800}
+              height={600}
+              loading="lazy"
+              decoding="async"
               className="w-full h-auto"
             />
           </div>
           <button
+            type="button"
             onClick={scrollToForm}
-            className="px-8 py-4 bg-tatweer-orange text-white rounded-xl hover:bg-green-700 transition-all duration-200 font-semibold shadow-lg"
+            className="px-8 py-4 bg-tatweer-orange text-white rounded-xl hover:bg-green-700 transition-colors duration-200 font-semibold shadow-lg"
           >
             Make an Inquiry
           </button>
         </div>
       </section>
-      <CommunitiesCarousel />
-      <section id="location-map" className="w-full px-4 sm:px-6 lg:px-8 py-12 md:py-20 bg-tatweer-navy">
+
+      <LazyOnView minHeight={520}>
+        <Suspense fallback={<SectionFallback />}>
+          <CommunitiesCarousel />
+        </Suspense>
+      </LazyOnView>
+
+      <section id="location-map" className="section-defer w-full px-4 sm:px-6 lg:px-8 py-12 md:py-20 bg-tatweer-navy">
         <div className="container mx-auto">
           <h2 className="text-2xl sm:text-3xl font-bold text-white mb-6 text-center">
             Location Map
@@ -76,25 +92,17 @@ const Landing = () => {
           <p className="text-gray-300 text-center mb-8">
             Park Sight | R4 — New Capital | العاصمة الإدارية
           </p>
-          <motion.div
-            initial={{ opacity: 0, y: 30, scale: 0.96 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.7, ease: 'easeOut' }}
-            className="max-w-4xl mx-auto rounded-2xl overflow-hidden bg-white shadow-2xl mb-10 ring-2 ring-white/10"
-          >
-            <motion.div
-              animate={{ scale: [1, 1.03, 1] }}
-              transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-              className="origin-center"
-            >
-              <img
-                src={mapImageSrc}
-                alt="Park Sight location map — R4 New Capital"
-                className="w-full h-auto block"
-              />
-            </motion.div>
-          </motion.div>
+          <div className="max-w-4xl mx-auto rounded-2xl overflow-hidden bg-white shadow-2xl mb-10 ring-2 ring-white/10">
+            <img
+              src={mapImageSrc}
+              alt="Park Sight location map — R4 New Capital"
+              width={1200}
+              height={800}
+              loading="lazy"
+              decoding="async"
+              className="w-full h-auto block"
+            />
+          </div>
           <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
               <h3 className="text-lg font-semibold text-white mb-4">الطرق والمحاور</h3>
@@ -121,8 +129,18 @@ const Landing = () => {
           </div>
         </div>
       </section>
-      <LeadForm />
-      <FAQ />
+
+      <LazyOnView minHeight={560}>
+        <Suspense fallback={<SectionFallback />}>
+          <LeadForm />
+        </Suspense>
+      </LazyOnView>
+
+      <LazyOnView minHeight={400}>
+        <Suspense fallback={<SectionFallback />}>
+          <FAQ />
+        </Suspense>
+      </LazyOnView>
     </main>
   );
 };

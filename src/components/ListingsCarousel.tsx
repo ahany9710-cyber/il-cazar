@@ -95,7 +95,7 @@ const ListingsCarousel = () => {
                 <div className="bg-white rounded-xl shadow-md p-4 transform scale-90">
                   <div className="aspect-[4/3] rounded-lg mb-2 overflow-hidden bg-gray-100 min-h-[120px]">
                     {listings[prevIndex].image ? (
-                      <img src={listings[prevIndex].image} alt={listings[prevIndex].name} className="w-full h-full object-cover object-center" />
+                      <img src={listings[prevIndex].image} alt={listings[prevIndex].name} width={640} height={480} loading="lazy" decoding="async" className="w-full h-full object-cover object-center" />
                     ) : (
                       <div className="w-full h-full flex items-center justify-center">
                         <svg className="w-12 h-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -149,7 +149,7 @@ const ListingsCarousel = () => {
                       <div className="order-1 md:order-1">
                         <div className="aspect-[4/3] rounded-xl overflow-hidden bg-gray-100 min-h-[200px] w-full">
                           {currentListing.image ? (
-                            <img src={currentListing.image} alt={currentListing.name} className="w-full h-full object-cover object-center" />
+                            <img src={currentListing.image} alt={currentListing.name} width={640} height={480} loading="lazy" decoding="async" className="w-full h-full object-cover object-center" />
                           ) : (
                             <div className="w-full h-full flex flex-col items-center justify-center text-tatweer-orange p-4">
                               <svg className="w-12 h-12 sm:w-16 sm:h-16 mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -229,7 +229,7 @@ const ListingsCarousel = () => {
                 <div className="bg-white rounded-xl shadow-md p-4 transform scale-90">
                   <div className="aspect-[4/3] rounded-lg mb-2 overflow-hidden bg-gray-100 min-h-[120px]">
                     {listings[nextIndex].image ? (
-                      <img src={listings[nextIndex].image} alt={listings[nextIndex].name} className="w-full h-full object-cover object-center" />
+                      <img src={listings[nextIndex].image} alt={listings[nextIndex].name} width={640} height={480} loading="lazy" decoding="async" className="w-full h-full object-cover object-center" />
                     ) : (
                       <div className="w-full h-full flex items-center justify-center">
                         <svg className="w-12 h-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
