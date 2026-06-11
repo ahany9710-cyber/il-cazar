@@ -1,6 +1,6 @@
 const Hero = () => {
-  const scrollToForm = () => {
-    document.getElementById('lead-form')?.scrollIntoView({ behavior: 'smooth' });
+  const scrollToUnits = () => {
+    document.getElementById('units')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
@@ -28,7 +28,7 @@ const Hero = () => {
             </p>
             <button
               type="button"
-              onClick={scrollToForm}
+              onClick={scrollToUnits}
               className="px-8 py-4 bg-tatweer-orange text-white rounded-2xl hover:bg-green-700 transition-colors duration-200 font-semibold shadow-xl text-lg"
             >
               استكشف الوحدات

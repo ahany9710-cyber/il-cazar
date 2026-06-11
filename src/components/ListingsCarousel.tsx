@@ -1,20 +1,57 @@
-import { useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { listings } from '../data/listings';
+import {
+  getListingIndexBySlug,
+  listingHash,
+  parseListingSlug,
+  setListingHash,
+} from '../utils/listingHash';
+
+const getInitialListingIndex = (): number => {
+  const slug = parseListingSlug(window.location.hash);
+  if (!slug) return 0;
+  const index = getListingIndexBySlug(slug);
+  return index >= 0 ? index : 0;
+};
 
 const ListingsCarousel = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(getInitialListingIndex);
+
+  const goToIndex = useCallback((index: number, updateHash = true) => {
+    setCurrentIndex(index);
+    if (updateHash) {
+      setListingHash(listings[index].slug);
+    }
+  }, []);
+
+  useEffect(() => {
+    const onHashChange = () => {
+      const slug = parseListingSlug(window.location.hash);
+      if (!slug) return;
+
+      const index = getListingIndexBySlug(slug);
+      if (index < 0) return;
+
+      setCurrentIndex(index);
+      document.getElementById('units')?.scrollIntoView({ behavior: 'smooth' });
+    };
+
+    window.addEventListener('hashchange', onHashChange);
+
+    if (parseListingSlug(window.location.hash)) {
+      document.getElementById('units')?.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    return () => window.removeEventListener('hashchange', onHashChange);
+  }, []);
 
   const nextListing = () => {
-    setCurrentIndex((prev) => (prev + 1) % listings.length);
+    goToIndex((currentIndex + 1) % listings.length);
   };
 
   const prevListing = () => {
-    setCurrentIndex((prev) => (prev - 1 + listings.length) % listings.length);
-  };
-
-  const goToIndex = (index: number) => {
-    setCurrentIndex(index);
+    goToIndex((currentIndex - 1 + listings.length) % listings.length);
   };
 
   const scrollToForm = () => {
@@ -29,7 +66,10 @@ const ListingsCarousel = () => {
   const nextIndex = (currentIndex + 1) % listings.length;
 
   return (
-    <section className="w-full px-4 sm:px-6 lg:px-8 pt-12 md:pt-16 pb-8 md:pb-12 lg:pb-20">
+    <section
+      id={`unit-${listings[currentIndex].slug}`}
+      className="w-full px-4 sm:px-6 lg:px-8 pt-12 md:pt-16 pb-8 md:pb-12 lg:pb-20 scroll-mt-24"
+    >
       <div className="container mx-auto">
         <div className="text-center mb-6 md:mb-12">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 md:mb-4">
@@ -38,6 +78,28 @@ const ListingsCarousel = () => {
           <p className="text-base sm:text-lg text-gray-600 mb-3 md:mb-4">
             شقق 2 و3 غرف وتاون هاوس — كل الوحدات بإطلالة على الحديقة
           </p>
+
+          <nav aria-label="تصفح الوحدات" className="flex flex-wrap justify-center gap-2 mb-4 md:mb-6">
+            {listings.map((listing, index) => (
+              <a
+                key={listing.slug}
+                href={listingHash(listing.slug)}
+                onClick={(e) => {
+                  e.preventDefault();
+                  goToIndex(index);
+                }}
+                aria-current={index === currentIndex ? 'page' : undefined}
+                className={`px-4 py-2 rounded-full text-sm font-semibold transition-colors duration-200 ${
+                  index === currentIndex
+                    ? 'bg-tatweer-orange text-white shadow-md'
+                    : 'bg-gray-100 text-gray-700 hover:bg-green-50 hover:text-tatweer-orange'
+                }`}
+              >
+                {listing.anchorLabel}
+              </a>
+            ))}
+          </nav>
+
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-50 rounded-full">
             <span className="text-sm md:text-base font-semibold text-tatweer-orange">
               الوحدة المميزة {currentIndex + 1} من {listings.length}
@@ -249,9 +311,9 @@ const ListingsCarousel = () => {
           {/* Large, touch-friendly navigation dots */}
           <div className="flex justify-center items-center gap-2 sm:gap-3 mt-6 md:mt-8">
             <span className="text-xs sm:text-sm text-gray-500 font-medium mr-1 hidden sm:inline">التنقل:</span>
-            {listings.map((_, index) => (
+            {listings.map((listing, index) => (
               <button
-                key={index}
+                key={listing.slug}
                 onClick={() => goToIndex(index)}
                 className={`transition-all duration-300 rounded-full min-w-[44px] min-h-[44px] flex items-center justify-center ${
                   index === currentIndex

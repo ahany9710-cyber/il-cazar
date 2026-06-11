@@ -1,8 +1,9 @@
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useEffect, useState } from 'react';
 import Hero from '../components/Hero';
 import HeroInfoCard from '../components/HeroInfoCard';
 import { LazyOnView, SectionFallback } from '../components/LazyOnView';
 import { config } from '../config';
+import { isUnitHash } from '../utils/listingHash';
 
 const ListingsCarousel = lazy(() => import('../components/ListingsCarousel'));
 const CommunitiesCarousel = lazy(() => import('../components/CommunitiesCarousel'));
@@ -31,13 +32,20 @@ const ROADS = [
 
 const Landing = () => {
   const mapImageSrc = config.mapImageUrl?.trim() || './location-map.jpg?v=4';
+  const [forceUnitsVisible, setForceUnitsVisible] = useState(() => isUnitHash(window.location.hash));
+
+  useEffect(() => {
+    const sync = () => setForceUnitsVisible(isUnitHash(window.location.hash));
+    window.addEventListener('hashchange', sync);
+    return () => window.removeEventListener('hashchange', sync);
+  }, []);
 
   return (
     <main>
       <Hero />
       <HeroInfoCard />
 
-      <LazyOnView minHeight={720}>
+      <LazyOnView id="units" minHeight={720} forceVisible={forceUnitsVisible}>
         <Suspense fallback={<SectionFallback />}>
           <ListingsCarousel />
         </Suspense>
