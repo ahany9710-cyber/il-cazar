@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { config } from '../config';
 
@@ -235,6 +235,14 @@ const LeadForm = () => {
             >
               {isSubmitting ? 'جاري الإرسال...' : 'إرسال والحصول على البروشور'}
             </motion.button>
+
+            <p className="text-center text-[10px] text-gray-400/70 leading-relaxed">
+              بإرسال النموذج، أنت توافق على{' '}
+              <Link to="/privacy-policy" className="underline hover:text-gray-500">
+                سياسة الخصوصية
+              </Link>
+              . {config.companyName} وسيط تسويق — ليس المطور.
+            </p>
           </motion.form>
         </motion.div>
       </div>

@@ -13,4 +13,7 @@ export const config: {
   heroImageUrl: string;
   /** Optional: external URL for location map image; if empty, uses ./location-map.jpg from public */
   mapImageUrl: string;
+  companyName: string;
+  developerName: string;
+  projectName: string;
 };

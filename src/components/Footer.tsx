@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { config } from '../config';
+import LegalLinks from './LegalLinks';
 
 const Footer = () => {
   const scrollToForm = () => {
@@ -117,12 +118,15 @@ const Footer = () => {
           className="mt-12 pt-8 border-t border-gray-800 text-center text-sm text-gray-400"
         >
           <p>
-            &copy; {new Date().getFullYear()} IL Cazar Developments. جميع الحقوق محفوظة.
+            &copy; {new Date().getFullYear()} {config.companyName}. جميع الحقوق محفوظة.
           </p>
           <p className="mt-2">
-            إخلاء المسؤولية: جميع المعلومات المقدمة قابلة للتغيير. يرجى
-            الاتصال بنا للحصول على أحدث الأسعار والتوفر.
+            {config.companyName} — وسيط تسويق عقاري. لسنا المطور. نملك حق التسويق لمشروع{' '}
+            {config.projectName} من {config.developerName}. جميع المعلومات تقريبية وقابلة للتغيير.
           </p>
+          <div className="mt-4">
+            <LegalLinks />
+          </div>
         </motion.div>
       </div>
     </footer>

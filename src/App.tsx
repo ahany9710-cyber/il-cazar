@@ -4,6 +4,8 @@ import Footer from './components/Footer';
 import FloatingActionBar from './components/FloatingActionBar';
 import Landing from './pages/Landing';
 import ThankYou from './pages/ThankYou';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import AboutUs from './pages/AboutUs';
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
           }
         />
         <Route path="/thank-you" element={<ThankYou />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/about-us" element={<AboutUs />} />
       </Routes>
     </BrowserRouter>
   );

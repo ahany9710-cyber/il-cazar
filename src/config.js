@@ -39,4 +39,9 @@ export const config = {
   // لو فاضي: يستخدم ./hero.jpg من public
   heroImageUrl: '',
   mapImageUrl: '',
+
+  // ——— Grandeur (وسيط التسويق) ———
+  companyName: 'Grandeur',
+  developerName: 'IL Cazar Developments',
+  projectName: 'Park Sight',
 };
