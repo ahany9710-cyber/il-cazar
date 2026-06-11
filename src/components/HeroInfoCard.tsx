@@ -16,14 +16,25 @@ const HeroInfoCard = () => {
         <div className="bg-white rounded-xl md:rounded-2xl shadow-md overflow-hidden">
           <div className="grid grid-cols-2 divide-x divide-y divide-gray-200">
             <div className="p-3 md:p-4 text-center md:text-right flex flex-col justify-center">
-              <p className="text-xs text-gray-500 mb-1">مساحة المشروع</p>
-              <p className="text-base md:text-lg font-medium text-gray-900">4,942 فدان</p>
+              <p className="text-xs text-gray-500 mb-1">المرحلة الأولى</p>
+              <p className="text-base md:text-lg font-medium text-gray-900">20 فدان</p>
             </div>
             <div className="p-3 md:p-4 text-center md:text-right flex flex-col justify-center">
-              <p className="text-xs text-gray-500 mb-1">انواع الوحدات</p>
-              <p className="text-base md:text-lg font-medium text-gray-900">شاليه، توين هاوس، فيلا</p>
+              <p className="text-xs text-gray-500 mb-1 flex items-center justify-center md:justify-end gap-1">
+                <span>🔥</span>
+                <span>أسعار تبدأ من</span>
+              </p>
+              <p className="text-base md:text-lg font-bold text-tatweer-orange">4.9 مليون ج — غرفتين</p>
             </div>
-            <div className="p-3 md:p-4 flex flex-row flex-wrap justify-center md:justify-end items-center gap-1.5">
+            <div className="p-3 md:p-4 text-center md:text-right flex flex-col justify-center">
+              <p className="text-xs text-gray-500 mb-1">أنواع الوحدات</p>
+              <p className="text-base md:text-lg font-medium text-gray-900">شقق 2 و3 غرف + تاون هاوس</p>
+            </div>
+            <div className="p-3 md:p-4 text-center md:text-right flex flex-col justify-center">
+              <p className="text-xs text-gray-500 mb-1">الإطلالة</p>
+              <p className="text-base md:text-lg font-medium text-gray-900">كل الوحدات Park View</p>
+            </div>
+            <div className="p-3 md:p-4 flex flex-row flex-wrap justify-center md:justify-end items-center gap-1.5 col-span-2">
               <button
                 type="button"
                 onClick={scrollToForm}
@@ -31,18 +42,14 @@ const HeroInfoCard = () => {
               >
                 مهتم
               </button>
-              <a
-                href="./brochure.pdf"
-                download
+              <button
+                type="button"
+                onClick={scrollToForm}
                 className="min-w-[8rem] py-2 px-3 bg-gray-900 text-white text-xs font-medium rounded-md hover:bg-gray-800 transition-colors inline-flex items-center justify-center gap-1 whitespace-nowrap"
               >
                 <PDFIcon />
                 احصل على البروشور
-              </a>
-            </div>
-            <div className="p-3 md:p-4 text-center md:text-right flex flex-col justify-center">
-              <p className="text-xs text-gray-500 mb-1">إستلام المشروع بالكامل</p>
-              <p className="text-base md:text-lg font-medium text-gray-900">2030</p>
+              </button>
             </div>
           </div>
         </div>

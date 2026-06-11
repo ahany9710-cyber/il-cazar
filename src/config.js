@@ -6,24 +6,25 @@
 export const config = {
   // معرف فورم Formspree (الفورم يبعت على الإيميل المسجل في formspree.io)
   // Formspree form ID (form submissions go to the email registered at formspree.io)
-  formspreeFormId: 'meelayjw',
+  formspreeFormId: 'mojzkjky',
 
   // رقم الواتساب (بدون + أو مسافات لاستخدامه في wa.me)
   // WhatsApp number (without + or spaces for wa.me links)
-  whatsappNumber: '201274230856',
+  whatsappNumber: '201110944499',
 
   // رقم الموبايل للمكالمات (مع + للمكالمات)
   // Phone number for calls (with + for tel: links)
-  phoneNumber: '+201274230856',
+  phoneNumber: '+201110944499',
 
   // تنسيق رقم الموبايل للعرض (اختياري - لو فاضي يستخدم phoneNumber)
   // Phone display format (optional - uses phoneNumber if empty)
-  phoneDisplay: '+20 127 423 0856',
+  phoneDisplay: '+20 111 094 4499',
 
   // ——— Google Ads (تهيئة جوجل أدز) ———
   // معرف Google Tag العالمي (مثل AW-XXXXXXXXX) - يُحمّل في كل الصفحات
   // Global Tag ID (e.g. AW-XXXXXXXXX) - loaded on all pages
-  gtag_id: 'AW-17872457649',
+  // TODO: Add your Google Ads gtag ID when ready
+  gtag_id: '',
 
   // معرف التحويل (اختياري - للتوثيق، التتبع الفعلي يستخدم gtag_id + conversion_label)
   // Conversion ID from Google Ads (optional - for reference; tracking uses gtag_id + conversion_label)
@@ -31,12 +32,11 @@ export const config = {
 
   // رمز التحويل من إعدادات التحويل في Google Ads - يُستخدم في صفحة الشكر فقط
   // Conversion label from Google Ads - used on thank-you page only
-  conversion_label: '19hmCPvcm_kbELGfoMpC',
+  // TODO: Add your conversion label when ready
+  conversion_label: '',
 
-  // ——— الفيديوهات (اختياري - للاستضافة الخارجية) ———
-  // لو فاضي: يستخدم الملفات من public (./hero-video.mp4، ./location.mp4)
-  // لو مليان: يستخدم الرابط المباشر (مثلاً من YouTube أو CDN)
-  heroVideoUrl: '',
-  heroPosterUrl: '',
-  mapVideoUrl: '',
+  // ——— Hero image (optional - external URL) ———
+  // لو فاضي: يستخدم ./hero.jpg من public
+  heroImageUrl: '',
+  mapImageUrl: '',
 };

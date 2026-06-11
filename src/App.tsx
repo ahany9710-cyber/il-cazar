@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
+import CountdownBar from './components/CountdownBar';
 import Footer from './components/Footer';
 import FloatingActionBar from './components/FloatingActionBar';
 import Landing from './pages/Landing';
@@ -13,7 +13,9 @@ function App() {
           path="/"
           element={
             <div className="min-h-screen bg-white">
-              <Header />
+              <div className="sticky top-0 z-50">
+                <CountdownBar />
+              </div>
               <Landing />
               <Footer />
               <FloatingActionBar />

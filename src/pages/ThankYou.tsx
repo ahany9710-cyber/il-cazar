@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { trackConversion } from '../utils/gtag';
 
@@ -12,7 +11,6 @@ const ThankYou = () => {
 
   return (
     <div className="min-h-screen bg-white flex flex-col">
-      <Header />
       <main className="flex-1 flex items-center justify-center px-4 py-16 md:py-24">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -52,7 +50,7 @@ const ThankYou = () => {
               download
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-block w-full px-8 py-4 bg-tatweer-orange text-white rounded-xl hover:bg-orange-600 transition-colors font-semibold shadow-lg"
+              className="inline-block w-full px-8 py-4 bg-tatweer-orange text-white rounded-xl hover:bg-green-700 transition-colors font-semibold shadow-lg"
             >
               تحميل PDF
             </motion.a>

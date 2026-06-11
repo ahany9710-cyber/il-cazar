@@ -27,15 +27,15 @@ const CommunitiesCarousel = () => {
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6 md:mb-8">
           <div>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
-              Project Zones
+              Life in the Park
             </h2>
-            <p className="text-gray-600">اكتشف مناطق مشروع IL Monte Galala - Marina Towers</p>
+            <p className="text-gray-600">اكتشف تجارب Park Sight — العافية، الطبيعة، والمجتمع</p>
           </div>
           <motion.button
             onClick={scrollToForm}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.98 }}
-            className="px-6 py-3 bg-tatweer-orange text-white rounded-xl font-semibold hover:bg-orange-600 transition-colors shadow-md whitespace-nowrap"
+            className="px-6 py-3 bg-tatweer-orange text-white rounded-xl font-semibold hover:bg-green-700 transition-colors shadow-md whitespace-nowrap"
           >
             استكشف المناطق ←
           </motion.button>
@@ -113,8 +113,8 @@ const CommunitiesCarousel = () => {
                             <span
                               key={tag}
                               className={
-                                tag.includes('2030') || tag.includes('Tatweer') || tag === 'IL Monte Galala'
-                                  ? 'text-xs sm:text-sm font-semibold px-3 py-1.5 rounded-full bg-orange-100 text-tatweer-orange uppercase tracking-wide'
+                                tag.includes('Phase 1') || tag.includes('IL Cazar') || tag === 'Park Sight'
+                                  ? 'text-xs sm:text-sm font-semibold px-3 py-1.5 rounded-full bg-green-100 text-tatweer-orange uppercase tracking-wide'
                                   : 'text-xs sm:text-sm text-gray-500 uppercase tracking-wide'
                               }
                             >
@@ -137,7 +137,7 @@ const CommunitiesCarousel = () => {
                       {/* CTA Button */}
                       <button
                         onClick={scrollToForm}
-                        className="w-full py-4 px-6 bg-tatweer-orange text-white rounded-xl font-semibold text-lg hover:bg-orange-600 transition-colors shadow-lg"
+                        className="w-full py-4 px-6 bg-tatweer-orange text-white rounded-xl font-semibold text-lg hover:bg-green-700 transition-colors shadow-lg"
                       >
                         احصل على مزيد من التفاصيل
                       </button>

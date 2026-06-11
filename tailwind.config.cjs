@@ -11,9 +11,9 @@ module.exports = {
       },
       colors: {
         tatweer: {
-          orange: '#E85D04',
-          'orange-light': '#FF6B00',
-          navy: '#0f172a',
+          orange: '#2E7D4F',
+          'orange-light': '#3D9A63',
+          navy: '#0E2A1E',
         },
       },
     },

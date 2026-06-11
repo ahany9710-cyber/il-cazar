@@ -33,13 +33,12 @@ const ListingsCarousel = () => {
       <div className="container mx-auto">
         <div className="text-center mb-6 md:mb-12">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 md:mb-4">
-            شاليهات كاملة التشطيب
+            وحدات Park Sight — المرحلة الأولى
           </h2>
           <p className="text-base sm:text-lg text-gray-600 mb-3 md:mb-4">
-            بإطلالة خلابة على البحر الاحمر من إدارة مجموعة الماريوت
+            شقق 2 و3 غرف وتاون هاوس — كل الوحدات بإطلالة على الحديقة
           </p>
-          {/* Card counter - very visible */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-orange-50 rounded-full">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-50 rounded-full">
             <span className="text-sm md:text-base font-semibold text-tatweer-orange">
               الوحدة المميزة {currentIndex + 1} من {listings.length}
             </span>
@@ -50,7 +49,7 @@ const ListingsCarousel = () => {
           {/* Mobile-optimized navigation arrows - larger and more accessible */}
           <button
             onClick={prevListing}
-            className="absolute left-0 sm:left-2 md:left-4 lg:left-2 top-1/2 -translate-y-1/2 z-30 bg-white rounded-full p-3 sm:p-4 md:p-5 shadow-2xl active:bg-orange-50 transition-all duration-200 active:scale-95 border-2 border-gray-200 active:border-tatweer-orange min-w-[48px] min-h-[48px] flex items-center justify-center"
+            className="absolute left-0 sm:left-2 md:left-4 lg:left-2 top-1/2 -translate-y-1/2 z-30 bg-white rounded-full p-3 sm:p-4 md:p-5 shadow-2xl active:bg-green-50 transition-all duration-200 active:scale-95 border-2 border-gray-200 active:border-tatweer-orange min-w-[48px] min-h-[48px] flex items-center justify-center"
             aria-label="الوحدة السابقة"
           >
             <svg
@@ -70,7 +69,7 @@ const ListingsCarousel = () => {
 
           <button
             onClick={nextListing}
-            className="absolute right-0 sm:right-2 md:right-4 lg:right-2 top-1/2 -translate-y-1/2 z-30 bg-white rounded-full p-3 sm:p-4 md:p-5 shadow-2xl active:bg-orange-50 transition-all duration-200 active:scale-95 border-2 border-gray-200 active:border-tatweer-orange min-w-[48px] min-h-[48px] flex items-center justify-center"
+            className="absolute right-0 sm:right-2 md:right-4 lg:right-2 top-1/2 -translate-y-1/2 z-30 bg-white rounded-full p-3 sm:p-4 md:p-5 shadow-2xl active:bg-green-50 transition-all duration-200 active:scale-95 border-2 border-gray-200 active:border-tatweer-orange min-w-[48px] min-h-[48px] flex items-center justify-center"
             aria-label="الوحدة التالية"
           >
             <svg
@@ -165,7 +164,7 @@ const ListingsCarousel = () => {
                       {/* Content section */}
                       <div className="flex flex-col justify-center order-2 md:order-2">
                         <div className="mb-2 flex flex-wrap gap-2">
-                          <span className="inline-block px-3 py-1.5 bg-orange-100 text-tatweer-orange rounded-full text-xs sm:text-sm font-semibold">
+                          <span className="inline-block px-3 py-1.5 bg-green-100 text-tatweer-orange rounded-full text-xs sm:text-sm font-semibold">
                             الوحدة {currentIndex + 1}
                           </span>
                           <span className="inline-block px-3 py-1.5 bg-gray-100 text-gray-700 rounded-full text-xs sm:text-sm font-semibold">
@@ -215,7 +214,7 @@ const ListingsCarousel = () => {
                         <motion.button
                           onClick={scrollToForm}
                           whileTap={{ scale: 0.97 }}
-                          className="w-full px-6 py-4 sm:py-5 bg-tatweer-orange text-white rounded-xl active:bg-orange-600 transition-all duration-200 font-bold shadow-lg text-base sm:text-lg min-h-[52px] flex items-center justify-center"
+                          className="w-full px-6 py-4 sm:py-5 bg-tatweer-orange text-white rounded-xl active:bg-green-700 transition-all duration-200 font-bold shadow-lg text-base sm:text-lg min-h-[52px] flex items-center justify-center"
                         >
                           طلب التفاصيل
                         </motion.button>

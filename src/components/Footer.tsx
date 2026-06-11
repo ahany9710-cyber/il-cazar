@@ -19,13 +19,16 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <img
-              src="./logos/tatweer-footer.png"
-              alt="Tatweer Misr"
-              className="h-10 w-auto object-contain invert mb-4"
-            />
+            <div className="mb-4">
+              <span className="text-xl font-bold tracking-wide text-white block">PARK SIGHT</span>
+              <span className="text-xs font-medium tracking-[0.2em] text-tatweer-orange uppercase">
+                by IL Cazar Developments
+              </span>
+            </div>
             <p className="text-gray-400 leading-relaxed">
-              IL Monte Galala - Marina Towers: مشروع عقاري فاخر من تطوير Tatweer Misr على 4,942 فدان في العين السخنة على البحر الأحمر. استلام 2030.
+              Park Sight — R4 New Capital. مشروع سكني متكامل من IL Cazar Developments،
+              مخطط رئيسياً بواسطة Mimar. المرحلة الأولى 20 فدان — Footprint 13% —
+              كل الوحدات بإطلالة على الحديقة.
             </p>
           </motion.div>
 
@@ -114,7 +117,7 @@ const Footer = () => {
           className="mt-12 pt-8 border-t border-gray-800 text-center text-sm text-gray-400"
         >
           <p>
-            &copy; {new Date().getFullYear()} Tatweer Misr. جميع الحقوق محفوظة.
+            &copy; {new Date().getFullYear()} IL Cazar Developments. جميع الحقوق محفوظة.
           </p>
           <p className="mt-2">
             إخلاء المسؤولية: جميع المعلومات المقدمة قابلة للتغيير. يرجى
@@ -127,4 +130,3 @@ const Footer = () => {
 };
 
 export default Footer;
-
