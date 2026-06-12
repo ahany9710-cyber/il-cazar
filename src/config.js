@@ -21,18 +21,13 @@ export const config = {
   phoneDisplay: '+20 111 094 4499',
 
   // ——— Google Ads (تهيئة جوجل أدز) ———
-  // معرف Google Tag العالمي (مثل AW-XXXXXXXXX) - يُحمّل في كل الصفحات
-  // Global Tag ID (e.g. AW-XXXXXXXXX) - loaded on all pages
-  // TODO: Add your Google Ads gtag ID when ready
-  gtag_id: '',
+  // معرف Google Tag العالمي — مُحمّل في index.html
+  gtag_id: 'AW-18202386140',
 
-  // معرف التحويل (اختياري - للتوثيق، التتبع الفعلي يستخدم gtag_id + conversion_label)
-  // Conversion ID from Google Ads (optional - for reference; tracking uses gtag_id + conversion_label)
-  conversion_id: '',
+  // معرف التحويل (للتوثيق — نفس معرف الـ Tag)
+  conversion_id: 'AW-18202386140',
 
-  // رمز التحويل من إعدادات التحويل في Google Ads - يُستخدم في صفحة الشكر فقط
-  // Conversion label from Google Ads - used on thank-you page only
-  // TODO: Add your conversion label when ready
+  // رمز التحويل من Google Ads — يُستخدم في صفحة الشكر (أضفه لما يتوفر)
   conversion_label: '',
 
   // ——— Hero image (optional - external URL) ———
